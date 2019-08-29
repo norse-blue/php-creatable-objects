@@ -1,0 +1,19 @@
+remote_theme: pmarsceill/just-the-docs
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+title: "PHP Creatable Objects"
+description: "PHP Creatable Objects is a PHP library that autowires a creation method to a reserved constructor."
+url: "https://norse-blue.github.io"
+baseurl: "/php-creatable-objects/"
+permalink: pretty
+search_enabled: true
+
+# Aux links for the upper right navigation
+aux_links:
+  "PHP Creatable Objects on GitHub":
+    - "//github.com/norse-blue/php-creatable-objects"
+
+# Google Analytics
+#ga_tracking: UA-144830285-
