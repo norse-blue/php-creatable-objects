@@ -12,7 +12,7 @@
 </div>
 <hr>
 
-**PHP Creatable Objects** is a PHP library that auto-wires an object's create method to its constructor regardless of visibility. constructor.
+**PHP Creatable Objects** is a PHP library that auto-wires an object's create method to its constructor regardless of visibility.
 
 ## Installation
 
