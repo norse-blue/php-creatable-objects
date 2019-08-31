@@ -2,7 +2,7 @@
 layout: default
 title: Home
 nav_order: 1
-description: PHP Creatable Objects is a PHP library that autowires a creation method to a reserved constructor.
+description: PHP Creatable Objects is a PHP library that auto-wires an object's create method to its constructor regardless of visibility.
 permalink: /
 ---
 
@@ -17,7 +17,7 @@ permalink: /
 
 ---
 
-**PHP Creatable Objects** is a PHP library that autowires a creation method to a reserved constructor.
+**PHP Creatable Objects** is a PHP library that auto-wires an object's create method to its constructor regardless of visibility.
 
 ## Installation
 

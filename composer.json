@@ -1,6 +1,6 @@
 {
   "name": "norse-blue/creatable-objects",
-  "description": "PHP Creatable Objects is a PHP library that autowires a creation method to a reserved constructor.",
+  "description": "PHP Creatable Objects is a PHP library that auto-wires an object's create method to its constructor regardless of visibility.",
   "keywords": ["creatable", "objects", "constructor"],
   "homepage": "https://norse.blue/open-source/php-creatable-objects",
   "license": "MIT",

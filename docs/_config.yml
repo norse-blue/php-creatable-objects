@@ -4,7 +4,7 @@ plugins:
   - jekyll-seo-tag
 
 title: "PHP Creatable Objects"
-description: "PHP Creatable Objects is a PHP library that autowires a creation method to a reserved constructor."
+description: "PHP Creatable Objects is a PHP library that auto-wires an object's create method to its constructor regardless of visibility."
 url: "https://norse-blue.github.io"
 baseurl: "/php-creatable-objects/"
 permalink: pretty
