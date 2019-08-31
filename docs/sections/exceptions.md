@@ -18,3 +18,10 @@ permalink: /exceptions
 
 The following is a list of the different exceptions that are used within this package.
 
+## MissingRequiredParametersException
+
+Exception thrown when a call to the constructor is made with missing required parameters.
+
+## UnresolvableConstructorException
+
+Exception thrown when the constructor is not resolvable.
