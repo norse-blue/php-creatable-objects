@@ -10,7 +10,7 @@ use NorseBlue\CreatableObjects\Tests\TestCase;
 class NoConstructorObjectTest extends TestCase
 {
     /** @test */
-    public function bla()
+    public function bla(): void
     {
         try {
             $subject = NoConstructorObject::create();
