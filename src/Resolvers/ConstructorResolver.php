@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NorseBlue\CreatableObjects\Resolvers;
 
+use NorseBlue\CreatableObjects\Exceptions\MissingRequiredParametersException;
 use NorseBlue\CreatableObjects\Exceptions\UnresolvableConstructorException;
 use ReflectionClass;
 use ReflectionException;
@@ -52,5 +53,37 @@ final class ConstructorResolver
         }
 
         return self::$cache[$class];
+    }
+
+    /**
+     * Split the given parameters array in 'required', 'optional' and 'extra' sub-arrays
+     * as specified by the constructor signature.
+     *
+     * @param string $class
+     * @param array<mixed> $parameters
+     *
+     * @return array<array<mixed>>
+     */
+    public static function splitParamsForConstructor(string $class, array $parameters): array
+    {
+        $constructor = self::resolve($class);
+
+        if (count($parameters) < $constructor->getNumberOfRequiredParameters()) {
+            throw new MissingRequiredParametersException(
+                'Missing parameters for constructor call of class ' . $class,
+                $constructor->getNumberOfRequiredParameters(),
+                count($parameters),
+            );
+        }
+
+        return [
+            'required' => array_slice($parameters, 0, $constructor->getNumberOfRequiredParameters()),
+            'optional' => array_slice(
+                $parameters,
+                $constructor->getNumberOfRequiredParameters(),
+                $constructor->getNumberOfParameters() - $constructor->getNumberOfRequiredParameters()
+            ),
+            'extra' => array_slice($parameters, $constructor->getNumberOfParameters()),
+        ];
     }
 }

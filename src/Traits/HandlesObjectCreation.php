@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace NorseBlue\CreatableObjects\Traits;
 
-use NorseBlue\CreatableObjects\Exceptions\MissingRequiredParametersException;
 use NorseBlue\CreatableObjects\Resolvers\ConstructorResolver;
 
 trait HandlesObjectCreation
@@ -12,24 +11,14 @@ trait HandlesObjectCreation
     /**
      * Creates a new instance.
      *
-     * @param mixed ...$params
+     * @param mixed ...$parameters
      *
      * @return static
      */
-    public static function create(...$params): self
+    public static function create(...$parameters): self
     {
-        $constructor = ConstructorResolver::resolve(static::class);
+        $params = ConstructorResolver::splitParamsForConstructor(static::class, $parameters);
 
-        if (count($params) < $constructor->getNumberOfRequiredParameters()) {
-            throw new MissingRequiredParametersException(
-                'Missing parameters for constructor call of class ' . static::class,
-                $constructor->getNumberOfRequiredParameters(),
-                count($params),
-            );
-        }
-
-        $params = array_slice($params, 0, $constructor->getNumberOfParameters());
-
-        return new static(...$params);
+        return new static(...array_merge($params['required'], $params['optional']));
     }
 }
