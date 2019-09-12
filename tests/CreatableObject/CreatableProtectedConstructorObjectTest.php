@@ -10,7 +10,7 @@ use NorseBlue\CreatableObjects\Tests\TestCase;
 class CreatableProtectedConstructorObjectTest extends TestCase
 {
     /** @test */
-    public function can_create_object_only_with_required_params()
+    public function can_create_object_only_with_required_params(): void
     {
         $subject = CreatableProtectedConstructorObject::create('value');
 
@@ -20,7 +20,7 @@ class CreatableProtectedConstructorObjectTest extends TestCase
     }
 
     /** @test */
-    public function can_create_object_with_all_params()
+    public function can_create_object_with_all_params(): void
     {
         $subject = CreatableProtectedConstructorObject::create('value', 9);
 
@@ -30,7 +30,7 @@ class CreatableProtectedConstructorObjectTest extends TestCase
     }
 
     /** @test */
-    public function can_create_object_with_extra_parameters_that_are_trimmed_from_call()
+    public function can_create_object_with_extra_parameters_that_are_trimmed_from_call(): void
     {
         $subject = CreatableProtectedConstructorObject::create('value', 9, 'extra param');
 
@@ -40,7 +40,7 @@ class CreatableProtectedConstructorObjectTest extends TestCase
     }
 
     /** @test */
-    public function throws_exception_when_creating_with_missing_parameters()
+    public function throws_exception_when_creating_with_missing_parameters(): void
     {
         try {
             CreatableProtectedConstructorObject::create();

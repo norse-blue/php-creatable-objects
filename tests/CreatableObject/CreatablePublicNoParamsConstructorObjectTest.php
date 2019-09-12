@@ -8,7 +8,7 @@ use NorseBlue\CreatableObjects\Tests\TestCase;
 class CreatablePublicNoParamsConstructorObjectTest extends TestCase
 {
     /** @test */
-    public function can_create_object()
+    public function can_create_object(): void
     {
         $subject = CreatablePublicNoParamConstructorObject::create();
 
@@ -16,7 +16,7 @@ class CreatablePublicNoParamsConstructorObjectTest extends TestCase
     }
 
     /** @test */
-    public function can_create_object_with_extra_parameters_that_are_trimmed_from_call()
+    public function can_create_object_with_extra_parameters_that_are_trimmed_from_call(): void
     {
         $subject = CreatablePublicNoParamConstructorObject::create('value', 9);
 
