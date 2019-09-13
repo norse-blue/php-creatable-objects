@@ -16,4 +16,4 @@ aux_links:
     - "//github.com/norse-blue/php-creatable-objects"
 
 # Google Analytics
-#ga_tracking: UA-144830285-
+ga_tracking: UA-144830285-4
