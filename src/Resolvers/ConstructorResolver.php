@@ -16,31 +16,7 @@ final class ConstructorResolver
     private static $cache = [];
 
     /**
-     * Gets the class constructor reflection method.
-     *
-     * @param string $class
-     *
-     * @return \ReflectionMethod
-     */
-    private static function getConstructor(string $class): ReflectionMethod
-    {
-        try {
-            $constructor = (new ReflectionClass($class))->getMethod('__construct');
-            // @codeCoverageIgnoreStart
-        } catch (ReflectionException $exception) {
-            throw new UnresolvableConstructorException(
-                'Cannot resolve constructor for class ' . $class . '.',
-                $exception->getCode(),
-                $exception,
-            );
-            // @codeCoverageIgnoreEnd
-        }
-
-        return $constructor;
-    }
-
-    /**
-     * Check if the class constructor is accessible.
+     * Resolves the class constructor reflection method.
      *
      * @param string $class
      *
@@ -48,11 +24,21 @@ final class ConstructorResolver
      */
     public static function resolve(string $class): ReflectionMethod
     {
-        if (!array_key_exists($class, self::$cache)) {
-            self::$cache[$class] = self::getConstructor($class);
+        if (array_key_exists($class, self::$cache)) {
+            return self::$cache[$class];
         }
 
-        return self::$cache[$class];
+        try {
+            $constructor = (new ReflectionClass($class))->getMethod('__construct');
+        } catch (ReflectionException $exception) {
+            throw new UnresolvableConstructorException(
+                'Cannot resolve constructor for class ' . $class . '.',
+                $exception->getCode(),
+                $exception,
+            );
+        }
+
+        return self::$cache[$class] = $constructor;
     }
 
     /**
