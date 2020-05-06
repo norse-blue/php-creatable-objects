@@ -13,14 +13,10 @@ use ReflectionMethod;
 final class ConstructorResolver
 {
     /** @var array<string, ReflectionMethod> */
-    private static $cache = [];
+    private static array $cache = [];
 
     /**
      * Resolves the class constructor reflection method.
-     *
-     * @param string $class
-     *
-     * @return \ReflectionMethod
      */
     public static function resolve(string $class): ReflectionMethod
     {
@@ -45,7 +41,6 @@ final class ConstructorResolver
      * Split the given parameters array in 'required', 'optional' and 'extra' sub-arrays
      * as specified by the constructor signature.
      *
-     * @param string $class
      * @param array<mixed> $parameters
      *
      * @return array<array<mixed>>
