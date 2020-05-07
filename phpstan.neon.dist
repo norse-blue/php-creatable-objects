@@ -4,5 +4,5 @@ parameters:
         - src
     ignoreErrors:
         -
-            message: "~Unsafe usage of new static().~"
+            message: '~Unsafe usage of new static().~'
             path: src/Traits/HandlesObjectCreation.php
