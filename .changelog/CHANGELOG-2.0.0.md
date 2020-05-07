@@ -8,5 +8,4 @@ Dependencies update.
 - The package dependencies have been updated to the latest versions.
 
 ---
-
 Previous: [Release 1.1.0](CHANGELOG-1.1.0.md)

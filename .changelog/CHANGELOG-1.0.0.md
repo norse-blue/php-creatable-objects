@@ -12,5 +12,4 @@ First stable release.
 - Add a cache to the constructor resolver to improve performance.
 
 ---
-
 Previous: [Release 0.0.0](CHANGELOG-0.0.0.md)
