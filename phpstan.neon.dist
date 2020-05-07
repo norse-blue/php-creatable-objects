@@ -1,4 +1,8 @@
 parameters:
-    level: 5
+    level: 6
     paths:
         - src
+    ignoreErrors:
+        -
+            message: "~Unsafe usage of new static().~"
+            path: src/Traits/HandlesObjectCreation.php

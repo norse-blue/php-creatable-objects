@@ -13,13 +13,13 @@ use Throwable;
 final class MissingRequiredParametersException extends RuntimeException
 {
     /** @var int Number of given parameters. */
-    private $givenParams;
+    private int $givenParams;
 
     /** @var int Number of required parameters. */
-    private $requiredParams;
+    private int $requiredParams;
 
     public function __construct(
-        string $message = "",
+        string $message = '',
         int $requiredParams = 0,
         int $givenParams = 0,
         int $code = 0,
@@ -33,8 +33,6 @@ final class MissingRequiredParametersException extends RuntimeException
 
     /**
      * Gets the call given parameter count.
-     *
-     * @return int
      */
     public function getGivenParams(): int
     {
@@ -43,8 +41,6 @@ final class MissingRequiredParametersException extends RuntimeException
 
     /**
      * Gets the call required parameter count.
-     *
-     * @return int
      */
     public function getRequiredParams(): int
     {
