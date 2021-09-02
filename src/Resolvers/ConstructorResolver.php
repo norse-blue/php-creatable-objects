@@ -25,6 +25,12 @@ final class ConstructorResolver
         }
 
         try {
+            if (! class_exists($class)) {
+                throw new UnresolvableConstructorException(
+                    'The given class ' . $class . ' does not exist.',
+                );
+            }
+
             $constructor = (new ReflectionClass($class))->getMethod('__construct');
         } catch (ReflectionException $exception) {
             throw new UnresolvableConstructorException(
