@@ -10,15 +10,11 @@ trait HandlesObjectCreation
 {
     /**
      * Creates a new instance.
-     *
-     * @param mixed ...$parameters
-     *
-     * @return static
      */
-    public static function create(...$parameters): self
+    public static function create(mixed ...$params): static
     {
-        $params = ConstructorResolver::splitParamsForConstructor(static::class, $parameters);
+        $splitted_params = ConstructorResolver::splitParamsForConstructor(static::class, $params);
 
-        return new static(...array_merge($params['required'], $params['optional']));
+        return new static(...array_merge($splitted_params['required'], $splitted_params['optional']));
     }
 }

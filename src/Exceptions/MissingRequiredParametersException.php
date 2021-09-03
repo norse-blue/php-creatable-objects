@@ -13,20 +13,20 @@ use Throwable;
 final class MissingRequiredParametersException extends RuntimeException
 {
     /** @var int Number of given parameters. */
-    private int $givenParams;
+    private int $given_params;
 
     /** @var int Number of required parameters. */
-    private int $requiredParams;
+    private int $required_params;
 
     public function __construct(
         string $message = '',
-        int $requiredParams = 0,
-        int $givenParams = 0,
+        int $required_params = 0,
+        int $given_params = 0,
         int $code = 0,
         ?Throwable $previous = null
     ) {
-        $this->requiredParams = $requiredParams;
-        $this->givenParams = $givenParams;
+        $this->required_params = $required_params;
+        $this->given_params = $given_params;
 
         parent::__construct($message, $code, $previous);
     }
@@ -36,7 +36,7 @@ final class MissingRequiredParametersException extends RuntimeException
      */
     public function getGivenParams(): int
     {
-        return $this->givenParams;
+        return $this->given_params;
     }
 
     /**
@@ -44,6 +44,6 @@ final class MissingRequiredParametersException extends RuntimeException
      */
     public function getRequiredParams(): int
     {
-        return $this->requiredParams;
+        return $this->required_params;
     }
 }

@@ -8,10 +8,6 @@ interface Creatable
 {
     /**
      * Creates a new instance.
-     *
-     * @param mixed ...$params
-     *
-     * @return mixed
      */
-    public static function create(...$params);
+    public static function create(mixed ...$params): mixed;
 }
