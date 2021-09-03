@@ -42,21 +42,25 @@
     }
   },
   "scripts": {
-    "analyze": "phpstan analyze --ansi",
-    "analyze:github": "phpstan analyze --error-format=github",
+    "analyze": "vendor/bin/phpstan analyze --ansi",
+    "analyze:github": "vendor/bin/phpstan analyze --error-format=github",
     "check": [
       "@style:check",
       "@analyze",
+      "@insights",
       "@test"
     ],
     "check:coverage": [
       "@style:check",
       "@analyze",
+      "@insights",
       "@test:coverage"
     ],
-    "style:check": "phpcs",
-    "style:fix": "phpcbf || phpcs",
-    "test": "phpunit --colors=always",
+    "insights": "vendor/bin/phpinsights --no-interaction --ansi",
+    "insights:verbose": "vendor/bin/phpinsights --no-interaction --ansi --verbose",
+    "style:check": "vendor/bin/phpcs",
+    "style:fix": "vendor/bin/phpcbf || phpcs",
+    "test": "vendor/bin/phpunit --colors=always",
     "test:coverage": [
       "@putenv XDEBUG_MODE=coverage",
       "phpunit --colors=always --coverage-text --coverage-clover=./build/coverage.xml --coverage-html=./build/coverage"
