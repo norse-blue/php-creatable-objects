@@ -57,7 +57,7 @@ final class ConstructorResolver
      *
      * @phpstan-return array{'required': array<mixed>, 'optional': array<mixed>, 'extra': array<mixed>}
      */
-    #[ArrayShape(['required' => "mixed[]", 'optional' => "mixed[]", 'extra' => "mixed[]"])]
+    #[ArrayShape(['required' => 'array<mixed>', 'optional' => 'array<mixed>', 'extra' => 'array<mixed>'])]
     public static function splitParamsForConstructor(string $class, array $params): array
     {
         $constructor = self::resolve($class);
