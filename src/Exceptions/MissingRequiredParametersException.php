@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NorseBlue\CreatableObjects\Exceptions;
 
+use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 use Throwable;
 
@@ -18,6 +19,7 @@ final class MissingRequiredParametersException extends RuntimeException
     /** @var int Number of required parameters. */
     private int $required_params;
 
+    #[Pure]
     public function __construct(
         string $message = '',
         int $required_params = 0,

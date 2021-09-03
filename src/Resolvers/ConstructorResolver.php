@@ -11,6 +11,9 @@ use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
 
+/**
+ * @internal
+ */
 final class ConstructorResolver
 {
     /** @var array<string, ReflectionMethod> */
@@ -27,9 +30,11 @@ final class ConstructorResolver
 
         try {
             if (! class_exists($class)) {
+                // @codeCoverageIgnoreStart
                 throw new UnresolvableConstructorException(
                     'The given class ' . $class . ' does not exist.',
                 );
+                // @codeCoverageIgnoreEnd
             }
 
             $constructor = (new ReflectionClass($class))->getMethod('__construct');
